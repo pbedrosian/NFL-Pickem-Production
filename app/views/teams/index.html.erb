@@ -1,0 +1,44 @@
+<div class='body-container'>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <ul>
+                <% @teams[0..7].each do |t| %>
+                    <li style="list-style-type: none;">
+                        <h6><%= button_to t.name, team_path(t), class: 'btn btn-dark btn-block', method: :get %></h6>
+                    </li>
+                <% end %>
+                </ul>
+            </div>
+        <div class="col-sm-3">
+            <ul>
+            <% @teams[8..15].each do |t| %>
+                <li style="list-style-type: none;">
+                    <h6><%= button_to t.name, team_path(t), class: 'btn btn-dark btn-block', method: :get %></h6>
+                </li>
+            <% end %>
+            </ul>
+        </div>
+        <div class="col-sm-3">
+            <ul>
+            <% @teams[16..23].each do |t| %>
+                <li style="list-style-type: none;">
+                    <h6><%= button_to t.name, team_path(t), class: 'btn btn-dark btn-block', method: :get %></h6>
+                </li>
+            <% end %>
+            </ul>
+        </div>
+        <div class="col-sm-3">
+            <ul>
+            <% @teams[24..31].each do |t| %>
+                <li style="list-style-type: none;">
+                    <h6><%= button_to t.name, team_path(t), class: 'btn btn-dark btn-block', method: :get %></h6>
+                </li>
+            <% end %>
+            </ul>
+        </div>
+  </div>
+</div>
+</div>

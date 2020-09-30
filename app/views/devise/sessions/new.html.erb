@@ -1,0 +1,43 @@
+<br>
+<div class="container" style='text-align: center;'>
+<div class="row">
+  <div class="col-sm-3">
+  </div>
+  
+  <div class="col-sm-6">
+    <%= form_for(resource, as: resource_name, html: {class: "text-center border border-light p-5"}, url: session_path(resource_name)) do |f| %>
+    <p class="h4 mb-4">Login</p>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email:', class: "form-control mb-4" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password:', class: "form-control mb-4" %>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div>
+            <% if devise_mapping.rememberable? %>
+              <div class="custom-control custom-checkbox">
+                <%= f.check_box :remember_me, class: 'custom-control-input' %>
+                <%= f.label :remember_me, class: 'custom-control-label' %>
+              </div>
+            <% end %>
+        
+      <div class="actions">
+        <%= f.submit "Log in", class: 'btn btn-info btn-block my-4' %>
+      </div>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    <% end %>
+      <p>Not a member?
+        <%= link_to 'Register', new_user_registration_path %>
+      </p>
+      <p>Forgot your password?
+        <%= link_to 'Reset Now', edit_user_password_path %>
+      </p>
+      <%= link_to 'Login with Facebook', user_facebook_omniauth_authorize_path%> 
+    <div>
+    
+
+  <div class="col-sm-3">
+  </div>
+<div>

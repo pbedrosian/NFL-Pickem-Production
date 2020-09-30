@@ -1,0 +1,11 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation">
+  <ul style="list-style-type: none; text-align: center;">
+      <% resource.errors.full_messages.each do |message| %>
+       <li> <em style="color:red;font-size:12px;" >
+          <%= message %>
+        </em> </li>
+      <% end %>
+  </ul>
+  </div>
+<% end %>

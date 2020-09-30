@@ -1,0 +1,29 @@
+<div class='body-container'>
+<% if params[:id].to_i == current_user.id %>
+  <%= render 'greeting' %>
+<% end %>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <h1> Recent Pick: </h1>
+    <% if @user.picks.empty? %>
+      <em> No Picks Made. </em>
+    <% else %>
+      <h1 style="color:#15088a"><%= @user.current_pick.team.name%></h1>
+    </div>
+    <div class="col-sm">
+      <b>Date of Game: </b>
+      <p> <%= get_game(@user.current_pick).date.to_time.localtime.strftime('%A, %B %dth')%></p>
+      <b>Opponent:</b>
+      <p><%= opponents(@user.current_pick.team, get_game(@user.current_pick))%></p>
+      <b>Status:</b>
+      <p><%= get_game(@user.current_pick).status %> </p>
+    <% end%>
+    </div>
+  </div>
+</div>
+<br>
+<h3> Season Picks </h3>
+<%= render partial: 'picks/table', locals: { picks: @user.picks } %>
+</div>

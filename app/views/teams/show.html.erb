@@ -1,0 +1,22 @@
+<div class='body-container'>
+    <h1> <%= @team.name%> <h2>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th><h5>Week</h5></th>
+                <th><h5>Agaisnt</h5></th>
+                <th><h5>Date</h5></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @team.games.sort_by(&:week_id).each do |g|%>
+            <tr>
+                <td><h6>Week <%= g.week.id%></h6></td>
+                <td><h6><%= opponents(@team, g) %></h6></td>
+                <td><h6><%= g.date.to_time.strftime('%A, %B %dth')%></h6></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>
